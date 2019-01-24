@@ -154,6 +154,10 @@ func GenerateUsersig(privateKey string, appid int, identifier string) (string, e
 	return GenerateUsersigWithExpire(privateKey, appid, identifier, 60*60*24*180)
 }
 
+func genSig(sdkappid int, identifier string, priKey string) (string, error) {
+	return GenerateUsersigWithExpire(priKey, sdkappid, identifier, 60*60*24*180)
+}
+
 func GenerateUsersigWithUserbuf(privateKey string, appid int, identifier string, expire int64, userbuf []byte) (string, error) {
 	obj := map[string]string{
 		"TLS.account_type": "0",

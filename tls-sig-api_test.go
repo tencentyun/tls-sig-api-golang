@@ -42,6 +42,17 @@ func TestGenAndVerify(t *testing.T) {
 	}
 }
 
+func TestGenSigAndVerfiy(t *testing. T) {
+	userSig, err := genSig(14000, "xiaojun", privateKey)
+	if err != nil {
+		t.Fatal(err)
+	}
+	err = VerifyUsersig(publicKey, userSig, 14000, "xiaojun")
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestGenAndVerifyExpire(t *testing.T) {
 	userSig, err := GenerateUsersigWithExpire(privateKey, 1, "1", 0)
 	if err != nil {
